@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>윤동주 시집</title>
+    </head>
+    <style>
+        .wrapper {
+            text-align: left;
+        }
+        .box {
+            
+            text-align: center;
+            background-color: yellow;
+            color: black;
+            width: 150px;
+            height: 60px;
+            border-radius: 15%;
+            margin: 0;
+            
+        }
+        .title {
+            font-size: 15px;
+            text-align: center;
+            position: relative;
+            left:50%;
+            transform: translate(-50%);
+            vertical-align: middle;
+        }
+    
+        .poem_title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        button{
+            border:0;
+            outline: none;
+        }
+        .boxes {
+            display: none;
+        }
+    </style>
+    <body>
+        <div class="wrapper">
+            <button  class="box" id="seoSi" value="false" onclick="OnOffPoem(this.value,id_seo,seoSi_title,seoSi_text)" >
+                <div class="title">
+                    서시<br> 윤동주
+                </div>
+                
+            </button>
+            <button  class="box" id="easySi" value="false" onclick="OnOffPoem(this.value,id_easy,easySi_title,easySi_text)">
+                <div class="title">
+                    쉽게 쓰여진 시<br> 윤동주
+                </div>
+                
+            </button>
+            <button  class="box" id="starNight" value="false" onclick="OnOffPoem(this.value,id_star,starNight_title,starNight_text)">
+                <div class="title">
+                    별 헤는 밤<br> 윤동주
+                </div>
+            </button>
+        </div>
+        <div id="parent_box">
+            <div id="1_box" class="boxes">
+
+            </div>
+            <div id="2_box" class="boxes">
+
+            </div>
+            <div id="3_box" class="boxes">
+
+            </div>
+        </div>
+
+        <script>
+            function OnOffPoem(val,poem_id,poem_title,poem_text){
+                
+                if(val == "false")
+                {
+                    var newDiv = document.createElement("div");
+                    newDiv.setAttribute("class","poems");
+                    newDiv.setAttribute("id",poem_id);
+                    var newDiv_title = document.createElement("p");
+                    newDiv_title.setAttribute("class","poem_title");
+                    newDiv_title.innerHTML = poem_title;
+                    var newDiv_content = document.createElement("p");
+                    newDiv_content.innerHTML = poem_text;
+                    newDiv.appendChild(newDiv_title);
+                    newDiv.appendChild(newDiv_content);
+                    
+                    //on
+                }
+                else{
+                    console.log(this.value);
+             
+                    //off
+                }
+                switch(poem_id)
+                {
+                    case id_seo:
+                        
+                        var s = document.getElementById("seoSi");
+                        if(s.value == "false")
+                        {
+                            s.setAttribute("value","true");
+                            s.style.backgroundColor = "skyblue";
+                            var p = document.getElementById("1_box");
+                            document.getElementById("1_box").style.display = "block";
+                            p.appendChild(newDiv);
+                            break;
+                        }
+                        else{
+                            s.setAttribute("value","false");
+                            s.style.backgroundColor = "yellow";
+                            var p = document.getElementById("1_box");
+                            var thisDiv = document.getElementById(poem_id);
+                            p.removeChild(document.getElementById(poem_id));
+                            document.getElementById("1_box").style.display = "none";
+                            break;
+                        }
+                    case id_easy:
+                        var e = document.getElementById("easySi");
+                        if(e.value == "false")
+                        {
+                            e.setAttribute("value","true");
+                            e.style.backgroundColor = "skyblue";
+                            var p = document.getElementById("2_box");
+                            document.getElementById("2_box").style.display = "block";
+                            p.appendChild(newDiv);
+                            break;
+                        }
+                        else{
+                            e.setAttribute("value","false");
+                            e.style.backgroundColor = "yellow";
+                            var p = document.getElementById("2_box");
+                            var thisDiv = document.getElementById(poem_id);
+                            p.removeChild(document.getElementById(poem_id));
+                            document.getElementById("2_box").style.display = "none";
+                            break;
+                        }
+                        break;
+                    case id_star:
+                        var t = document.getElementById("starNight");
+                        if(t.value == "false")
+                        {
+                            t.setAttribute("value","true");
+                            t.style.backgroundColor = "skyblue";
+                            var p = document.getElementById("3_box");
+                            document.getElementById("3_box").style.display = "block";
+                            p.appendChild(newDiv);
+                            break;
+                        }
+                        else{
+                            t.setAttribute("value","false");
+                            t.style.backgroundColor = "yellow";
+                            var p = document.getElementById("3_box");
+                            var thisDiv = document.getElementById(poem_id);
+                            p.removeChild(document.getElementById(poem_id));
+                            document.getElementById("3_box").style.display = "none";
+                            break;
+                        }
+                }
+            }
+  
+            var seo = document.getElementById("seoSi");
+            var easy = document.getElementById("easySi");
+            var star = document.getElementById("starNight");
+
+            // poem title, content 
+            var seoSi_title = "서시, 윤동주";
+            var easySi_title = "쉽게 쓰여진 시, 윤동주";
+            var starNight_title = "별 헤는 밤, 윤동주";
+
+            var seoSi_text = "죽는 날까지 하늘을 우러러<br>한 점 부끄럼이 없기를,<br>잎새에 이는 바람에도<br>나는 괴로워했다.<br>별을 노래하는 마음으로<br>모든 죽어가는 것을 사랑해야지.<br>그리고 나한테 주어진 길을<br>걸어가야겠다.<br>";
+            var easySi_text = "인생은 살기 어렵다는데<br>시가 이렇게 쉽게 씌어지는 것은<br>부끄러운 일이다<br>육첩방은 남의 나라<br>창밖에 밤비가 속살거리는데,<br>등불을 밝혀 어둠을 조금 내몰고<br>시대처럼 올 아침을 기다리는 최후의 나.<br>";
+            var starNight_text = "계절로 지나가는 하늘에는<br>가을로 가득 차 있습니다.<br>나는 아무 걱정도 없이<br>가을 속의 별들을 다 헤일 듯 합니다.<br>가슴속에 하나 둘 새겨지는 별을<br>이제 다 못 헤는 것은<br>쉬이 아침이 오는 까닭이요,<br>내일 밤이 남은 까닭이요,<br>아직 나의 청춘이 다 하지 않은 까닭입니다.<br>";
+
+            var id_seo = "id_seo";
+            var id_easy = "id_easy";
+            var id_star = "id_star";
+   
+        </script>
+    </body>
+</html>

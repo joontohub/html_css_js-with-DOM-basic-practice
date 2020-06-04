@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>webflower</title>
+        <style type="text/css">
+            /* 꽃에 전체적인 마진을 줌 */
+            .flower{  
+                margin:30px;
+            }
+            /* 
+                position을 relative 로 두고, float 를 왼쪽으로 맞춰서 설정함. 
+                HTML div 다음에 빈 공간을 clear 시켜서
+                칸을 넘겨 css 꽃잎이 아래로 갈 수 있도록 처리함. 
+            */
+            #www{
+                top:10px;
+                left:20px;
+                position : relative ; 
+                float: left;
+                margin: 10px;
+                width:20%;
+                height:20%;
+                padding-bottom: 20%;
+                background-color: red;
+                border: 5px outset turquoise; 
+                border-bottom-left-radius: 70%; 
+                border-top-right-radius: 70%; 
+                box-shadow: 5px 5px 20px 2px black;
+            }
+            #HTML{
+                top:10px;
+                left:20px;
+                position : relative ; 
+                float: left;
+                margin: 10px;
+                width:20%;
+                height:20%;
+                padding-bottom: 20%;
+                background-color: green;
+                border: 5px solid turquoise; 
+                border-bottom-right-radius: 70%; 
+                border-top-left-radius: 70%; 
+                box-shadow: 5px 5px 20px 2px black;
+            }        
+            #CSS{
+                top:10px;
+                left:20px;
+                position : relative ; 
+                float:left;
+                margin: 10px;
+                width:20%;
+                height:20%;
+                padding-bottom: 20%;
+                background-color: blue;
+                border: 5px solid turquoise; 
+                border-bottom-right-radius: 70%; 
+                border-top-left-radius: 70%;  
+                box-shadow: 5px 5px 20px 2px black;
+            }        
+            #JS{
+                top:10px;
+                left:20px;
+                position : relative ; 
+                float:left;
+                margin: 10px;
+                width:20%;
+                height:20%;
+                padding-bottom: 20%;
+                background-color: pink;
+                border: 5px outset turquoise; 
+                border-bottom-left-radius: 70%; 
+                border-top-right-radius: 70%; 
+                box-shadow: 5px 5px 20px 2px black;
+            }
+            .clearDiv{
+                top:10%;
+                clear:left;
+            }
+            /*
+                꽃잎 내부 공간에 div 을 나눠서 text-align 시키고, 
+                내부 공간에 위치를 고정함. 
+                text 의 위치를 조정하는 div 안에
+                margin, padding, text-align 을 설정함. 
+            */
+            .innerTextDiv {
+                position: absolute;
+                text-align: center;
+                margin:25%;
+                padding:10%;
+                width:30%;
+                height:30%;
+                
+            }
+            h1{
+                color:white;
+            }
+            /*
+                커서가 올라갈 경우, 회전을 1800도 시키고, 1초동안 동작하도록 함. 
+            */
+            .hoverControlDiv:hover {
+                transform: rotate(1800deg);
+                transition: transform 1s
+            }
+        </style>
+    </head>
+    <body>
+        <!-- flower 로 전체 div 를 묶음 -->
+        <div class="flower">
+            <!-- 첫 번째 div id="www" hover 기능을 사용하기 위해, 각각 꽃잎 div를 class 로 묶음. -->
+            <div id="www" class="hoverControlDiv">
+                <!-- 내부 글자부분을 class 로 묶어서 4개의 꽃잎의 글자를 통일하여 처리함 -->
+                <div class="innerTextDiv">
+                    <!-- 글자의 크기는 h1 으로 설정 -->
+                    <h1>
+                        WWW
+                    </h1>
+                </div>
+            </div>
+            <!-- 두 번째 div id="HTML" -->
+            <div id="HTML" class="hoverControlDiv">
+                <div class="innerTextDiv">
+                    <h1>
+                        HTML
+                    </h1>
+                </div>
+            </div>
+            <!--  빈 클래스를 만들고 공간을 clear 시킴 -->
+            <div class="clearDiv">
+            </div>
+            <!-- 세 번째 div id="CSS" -->
+            <div id="CSS" class="hoverControlDiv">
+                <div class="innerTextDiv">
+                    <h1>
+                        CSS
+                    </h1>
+                </div>
+            </div>
+            <!-- 네 번째 div id="JS" -->
+            <div id="JS" class="hoverControlDiv">
+                <div class="innerTextDiv">
+                    <h1>
+                        JS
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>컬러 테이블</title>
+        <style>
+            table {
+                vertical-align: middle;
+                width: 400px;
+                height: 240px;
+                text-align: center;
+            }
+            #colorInput {
+                width:300px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <table border="1">
+            <tr><td id="1-1">1-1</td><td id="1-2">1-2</td><td id="1-3">1-3</td><td id="1-4">1-4</td><td id="1-5">1-5</td></tr>
+            <tr><td id="2-1">2-1</td><td id="2-2">2-2</td><td id="2-3">2-3</td><td id="2-4">2-4</td><td id="2-5">2-5</td></tr>
+            <tr><td id="3-1">3-1</td><td id="3-2">3-2</td><td id="3-3">3-3</td><td id="3-4">3-4</td><td id="3-5">3-5</td></tr>
+        </table>
+        <br><br>
+        <span>세로</span>
+        <input type="text" id="colCheck"> <br>
+        <span>가로</span>
+        <input type="text" id="rowCheck"><br>
+        <span>컬러</span>
+        <input type="text" id="colorInput"><br>
+        <br>
+
+        <input type="button" value="컬러 적용" onclick="ColorChange();">
+        <script>
+            function ColorChange(){
+                var sero = document.getElementById("rowCheck");
+                var garo = document.getElementById("colCheck");
+                var changeBox = document.getElementById(garo.value+"-"+sero.value);
+                var color = document.getElementById("colorInput");
+                
+                changeBox.style.backgroundColor = color.value;
+            }
+        </script>
+    </body>
+</html>

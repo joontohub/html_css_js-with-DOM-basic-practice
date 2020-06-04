@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>레스토랑 예약</title>
+    </head>
+    <body>
+        <h1>레스토랑 예약하기</h1>
+        <form method="get" action="reservation.js">
+            <fieldset>
+                <legend>예약자 정보</legend>
+                <label for="reserve_name">예약자 : </label>
+                <input type="text" name="name" size="30" id="reserve_name"/> <br>
+                <br>
+                <label for="phone_number">휴대폰 :</label>
+                <input type="tel" name="phone" size="30" id="phone_number" placeholder="01*-000*-0000" pattern="[0-1]{2}[0-9]{1}-[0-9]{3,4}-[0-9]{4}"/> <br>
+                <br> 예약인원 : 
+                <select name="reserve_number" size="1">
+                    <option value="reserve_two">2명</option>
+                    <option value="reserve_three">3명</option>
+                    <option value="reserve_four">4명</option>
+                    <option value="reserve_five">5명</option>
+                    <option value="reserve_six">6명</option>
+                    <option value="reserve_seven">7명</option>
+                    <option value="reserve_eight">8명</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>일자 선택 및 시간 선택</legend>
+                <input type="date" name="reserve_date" /> 
+                <input type="time" name="reserve_time" min="09:00" max="20:00"/>
+                <br> 위치 : 
+                <label for="main_location_id"> 본관 </label>
+                <input type="radio" name="room_type" value="main_location" id="main_location_id"/>
+                <label for="sub_location_id"> 별관 </label>
+                <input type="radio" name="room_type" value="sub_location" id="sub_location_id"/>
+                <br> 옵션 : 
+                <input type="checkbox" name="option_type" value="single" id="single_room_option"/>
+                <label for="single_room_option">단독룸</label>
+                <input type="checkbox" name="option_type" value="baby_sit" id="baby_sit_option" />
+                <label for="baby_sit_option">아기의자</label>
+                <input type="checkbox" name="option_type" value="vegetarian" id="vegetarian_option" />
+                <label for="vegetarian_option">채식요리</label>
+            </fieldset>
+            <br>
+            <input type="submit" value="예약"/>
+            <input type="reset" value="취소"/>
+        </form>
+    </body>
+</html>
